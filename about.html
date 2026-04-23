@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — GetKredit</title>
+    <meta name="description" content="We built GetKredit because we've seen what the industry runs on. Purpose-built for real estate developers, sales teams, and home loan operations.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Frameworks & Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        deep: { 900: '#0a1628', 800: '#104960', 700: '#155e7a' },
+                        bright: '#0066FF',
+                        accent: '#FF8C42',
+                        success: '#00A86B',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Assets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .custom-cursor {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #0066FF;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.15s ease-out;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
+        .custom-cursor.hovering {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 102, 255, 0.2);
+            border-color: #00A86B;
+        }
+        @media (max-width: 768px) {
+            .custom-cursor { display: none; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-bright selection:text-white">
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="noise"></div>
+
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="glass-strong border-b border-white/10">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <a href="index.html" class="flex items-center gap-3 cursor-pointer">
+                        <img src="assets/getKredit.png" alt="Logo" class="w-50 h-10 rounded-xl object-cover">
+                    </a>
+                    <div class="hidden md:flex items-center gap-8">
+                        <a href="index.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Home</a>
+                        <a href="features.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Features</a>
+                        <a href="builders.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Builders</a>
+                        <a href="how-it-works.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">How It Works</a>
+                        <a href="about.html" class="nav-link active text-sm font-medium text-white transition-colors">About Us</a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="#" class="hidden md:block text-sm font-medium text-gray-300 hover:text-white transition-colors">Log In</a>
+                        <a href="index.html#contact" class="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold text-white flex items-center gap-2">Request a Demo<i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-20 mesh-gradient">
+        <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 py-20 text-center">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 reveal">
+                We built GetKredit because we've seen what the <span class="gradient-text italic font-serif">industry runs on</span>
+            </h1>
+        </div>
+    </section>
+
+    <!-- Origin Story -->
+    <section class="relative py-24 bg-deep-900">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="glass rounded-3xl p-10 border-l-4 border-bright reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">About GetKredit</h2>
+                <div class="space-y-6 text-gray-300 leading-relaxed">
+                    <p>Real estate in India moves fast. Projects get sold before they're built. Home loans close in the last week of the quarter. RERA compliance is non-negotiable. And somehow, most of this is still managed on Excel and WhatsApp.</p>
+                    <p>We built GetKredit to change that.</p>
+                    <p>GetKredit is a comprehensive real estate and credit management platform — purpose-built for developer organisations, their sales teams, their broker networks, and their home loan operations. We connect every stakeholder in the property sales lifecycle — from the builder's admin team to the bank's credit officer — in one structured, role-controlled system.</p>
+                    <p>Our platform is designed around real workflows: the ones that actually exist in builder organisations, credit teams, and brokerage firms across India. Not textbook CRM flows. The real ones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Cover -->
+    <section class="relative py-24 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-deep-900 via-[#0d1f35] to-deep-900"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What GetKredit <span class="gradient-text">Covers</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">GetKredit is not a point solution. It is a full-lifecycle platform.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass rounded-2xl p-6 reveal card-hover">
+                    <div class="w-10 h-10 rounded-lg bg-bright/20 flex items-center justify-center mb-4"><i data-lucide="building" class="w-5 h-5 text-bright"></i></div>
+                    <h4 class="font-bold mb-2">Project & Inventory</h4>
+                    <p class="text-sm text-gray-400">From RERA registration to unit configuration to construction updates.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 100ms;">
+                    <div class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center mb-4"><i data-lucide="target" class="w-5 h-5 text-accent"></i></div>
+                    <h4 class="font-bold mb-2">Sales Pipeline</h4>
+                    <p class="text-sm text-gray-400">Every lead, every interaction, every booking — end to end.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 200ms;">
+                    <div class="w-10 h-10 rounded-lg bg-success/20 flex items-center justify-center mb-4"><i data-lucide="user-check" class="w-5 h-5 text-success"></i></div>
+                    <h4 class="font-bold mb-2">Customer Management</h4>
+                    <p class="text-sm text-gray-400">Post-booking profiling, documentation, demand management, and settlement.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 300ms;">
+                    <div class="w-10 h-10 rounded-lg bg-bright/20 flex items-center justify-center mb-4"><i data-lucide="landmark" class="w-5 h-5 text-bright"></i></div>
+                    <h4 class="font-bold mb-2">APF Management</h4>
+                    <p class="text-sm text-gray-400">Bank selection, due diligence, APF issuance, and renewal tracking.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 400ms;">
+                    <div class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center mb-4"><i data-lucide="banknote" class="w-5 h-5 text-accent"></i></div>
+                    <h4 class="font-bold mb-2">Home Loan Processing</h4>
+                    <p class="text-sm text-gray-400">From customer profiling to FI matching to disbursement.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 500ms;">
+                    <div class="w-10 h-10 rounded-lg bg-success/20 flex items-center justify-center mb-4"><i data-lucide="phone-call" class="w-5 h-5 text-success"></i></div>
+                    <h4 class="font-bold mb-2">Calling & Performance</h4>
+                    <p class="text-sm text-gray-400">Structured outreach with TAT measurement and SM performance analytics.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 600ms;">
+                    <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4"><i data-lucide="handshake" class="w-5 h-5 text-purple-400"></i></div>
+                    <h4 class="font-bold mb-2">Broker Management</h4>
+                    <p class="text-sm text-gray-400">Onboarding, lead tracking, brokerage and incentive management.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 700ms;">
+                    <div class="w-10 h-10 rounded-lg bg-bright/20 flex items-center justify-center mb-4"><i data-lucide="bar-chart-3" class="w-5 h-5 text-bright"></i></div>
+                    <h4 class="font-bold mb-2">MIS & Dashboards</h4>
+                    <p class="text-sm text-gray-400">Real-time visibility for every role, from Sales Executive to leadership.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 800ms;">
+                    <div class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center mb-4"><i data-lucide="users" class="w-5 h-5 text-accent"></i></div>
+                    <h4 class="font-bold mb-2">Team Management</h4>
+                    <p class="text-sm text-gray-400">Targets, To-Dos, qualitative and quantitative performance tracking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="relative py-24 bg-deep-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What We <span class="gradient-text">Believe</span></h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass rounded-2xl p-6 reveal card-hover">
+                    <div class="w-12 h-12 rounded-xl bg-bright/20 flex items-center justify-center mb-4"><i data-lucide="heart-handshake" class="w-6 h-6 text-bright"></i></div>
+                    <h4 class="font-bold mb-2">Real estate is relationships and data</h4>
+                    <p class="text-sm text-gray-400">We built GetKredit to capture both. Every interaction is logged. Every document is stored. Every decision has a trail.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 100ms;">
+                    <div class="w-12 h-12 rounded-xl bg-success/20 flex items-center justify-center mb-4"><i data-lucide="list-checks" class="w-6 h-6 text-success"></i></div>
+                    <h4 class="font-bold mb-2">Structure drives conversion</h4>
+                    <p class="text-sm text-gray-400">The teams that convert the most leads to home loans are the ones with the most disciplined processes — not the biggest teams.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 200ms;">
+                    <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4"><i data-lucide="shield-check" class="w-6 h-6 text-accent"></i></div>
+                    <h4 class="font-bold mb-2">Compliance isn't optional</h4>
+                    <p class="text-sm text-gray-400">RERA documentation, DSA agreements, APF covenants — made part of your daily workflow, not a Friday scramble.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 300ms;">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4"><i data-lucide="eye" class="w-6 h-6 text-purple-400"></i></div>
+                    <h4 class="font-bold mb-2">Visibility is leadership</h4>
+                    <p class="text-sm text-gray-400">Your Sales Managers can only lead when they know what's happening. Your leadership can only decide when they have real data.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover md:col-span-2 lg:col-span-2" style="transition-delay: 400ms;">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center mb-4"><i data-lucide="hammer" class="w-6 h-6 text-orange-400"></i></div>
+                    <h4 class="font-bold mb-2">Built with builders, for builders</h4>
+                    <p class="text-sm text-gray-400">GetKredit is built in close collaboration with developer groups, credit teams, and brokerage firms. Every module reflects how these organisations actually work — and evolves as their needs change.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="relative py-24 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-deep-900 via-[#0d1f35] to-deep-900"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center reveal">
+            <div class="glass rounded-3xl p-12 border border-success/30">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-success">Our Mission</h2>
+                <p class="text-xl md:text-2xl text-gray-300 leading-relaxed">To make structured, compliant, data-driven real estate operations accessible to every developer organisation in India — regardless of scale.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="relative py-24 bg-deep-900">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center reveal">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">We'd love to tell you <span class="gradient-text">more</span></h2>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html#contact" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold text-white inline-flex items-center justify-center gap-2">
+                    Book a Call with Our Team
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                </a>
+                <a href="how-it-works.html" class="glass px-8 py-4 rounded-full text-lg font-semibold text-white hover:bg-white/10 transition-all inline-flex items-center justify-center gap-2">
+                    See the Platform in Action
+                    <i data-lucide="play-circle" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative border-t border-white/10 pt-20 pb-10 bg-deep-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="assets/getKredit.png" alt="Logo" class="w-50 h-10 rounded-xl object-cover">
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">Real Estate & Credit Management Platform. Manage every project, lead, customer, and home loan from one place.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-bright/20 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-bright/20 transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-bright/20 transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-bright/20 transition-colors"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="features.html" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="builders.html" class="hover:text-white transition-colors">Builders</a></li>
+                        <li><a href="how-it-works.html" class="hover:text-white transition-colors">How It Works</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Product</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="features.html#project" class="hover:text-white transition-colors">Project & Inventory</a></li>
+                        <li><a href="features.html#leads" class="hover:text-white transition-colors">Lead Management</a></li>
+                        <li><a href="features.html#apf" class="hover:text-white transition-colors">APF & Home Loan</a></li>
+                        <li><a href="features.html#calling" class="hover:text-white transition-colors">Calling Process</a></li>
+                        <li><a href="features.html#mis" class="hover:text-white transition-colors">MIS & Reporting</a></li>
+                        <li><a href="features.html#broker" class="hover:text-white transition-colors">Broker Management</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Contact</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i>hello@getkredit.in</li>
+                        <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4"></i>New Rajender Nagar, Delhi</li>
+                        <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4"></i>Mon–Fri 9AM–6PM IST</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500">© 2026 GetKredit Technologies Pvt. Ltd. All rights reserved.</p>
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition-colors">Security</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        document.querySelectorAll('a, button, input, textarea, select').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+        });
+    </script>
+</body>
+</html>

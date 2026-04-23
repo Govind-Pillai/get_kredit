@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features — GetKredit</title>
+    <meta name="description" content="Everything your developer organisation needs — project management, lead tracking, APF & home loans, MIS dashboards, and more.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Frameworks & Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        deep: { 900: '#0a1628', 800: '#104960', 700: '#155e7a' },
+                        bright: '#0066FF',
+                        accent: '#FF8C42',
+                        success: '#00A86B',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Assets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .custom-cursor {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #0066FF;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.15s ease-out;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
+        .custom-cursor.hovering {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 102, 255, 0.2);
+            border-color: #00A86B;
+        }
+        @media (max-width: 768px) {
+            .custom-cursor { display: none; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-bright selection:text-white">
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="noise"></div>
+
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="glass-strong border-b border-white/10">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <a href="index.html" class="flex items-center gap-3 cursor-pointer">
+                        <img src="assets/getKredit.png" alt="Logo" class="w-50 h-10 rounded-xl object-cover">
+                    </a>
+                    <div class="hidden md:flex items-center gap-8">
+                        <a href="index.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Home</a>
+                        <a href="features.html" class="nav-link active text-sm font-medium text-white transition-colors">Features</a>
+                        <a href="builders.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Builders</a>
+                        <a href="how-it-works.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">How It Works</a>
+                        <a href="about.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">About Us</a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="#" class="hidden md:block text-sm font-medium text-gray-300 hover:text-white transition-colors">Log In</a>
+                        <a href="index.html#contact" class="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold text-white flex items-center gap-2">Request a Demo<i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-20 mesh-gradient">
+        <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 py-20 text-center">
+            <span class="text-bright font-semibold tracking-wider uppercase text-sm reveal">Feature Deep-Dives</span>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mt-6 mb-6 reveal">
+                Everything your developer <span class="gradient-text italic font-serif">organisation</span> needs
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed reveal">
+                GetKredit covers the full lifecycle: from the day a project is onboarded to the day the last unit is sold and the home loan is disbursed. Every module is designed around the way builder organisations actually operate.
+            </p>
+            <div class="mt-10 reveal">
+                <a href="index.html#contact" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold text-white inline-flex items-center gap-2">
+                    Request a Demo
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Management -->
+    <section id="project" class="relative py-24 bg-deep-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <div class="reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-bright/20 flex items-center justify-center"><i data-lucide="building" class="w-6 h-6 text-bright"></i></div>
+                        <span class="text-bright font-semibold tracking-wider uppercase text-sm">Project Management</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Create, configure, and control your entire <span class="gradient-text">project portfolio</span></h2>
+                    <div class="space-y-6 text-gray-300">
+                        <div class="feature-detail bright">
+                            <h4 class="font-semibold text-white mb-1">4-step project wizard</h4>
+                            <p class="text-sm text-gray-400">Project Information → Construction → Configuration → Documents. Every field your admin team needs, in the right order.</p>
+                        </div>
+                        <div class="feature-detail bright">
+                            <h4 class="font-semibold text-white mb-1">Google Maps integration</h4>
+                            <p class="text-sm text-gray-400">Pin your project location on the map; latitude, longitude, and address auto-fill.</p>
+                        </div>
+                        <div class="feature-detail bright">
+                            <h4 class="font-semibold text-white mb-1">RERA compliance built in</h4>
+                            <p class="text-sm text-gray-400">Promoter RERA number, project RERA number, revised RERA support, and RERA escrow bank account management.</p>
+                        </div>
+                        <div class="feature-detail bright">
+                            <h4 class="font-semibold text-white mb-1">Tower & unit inventory</h4>
+                            <p class="text-sm text-gray-400">Configure towers, floors, unit types (2 BHK, 3 BHK, etc.), saleable areas, parking, and lift details.</p>
+                        </div>
+                        <div class="feature-detail bright">
+                            <h4 class="font-semibold text-white mb-1">Payment plan linked to milestones</h4>
+                            <p class="text-sm text-gray-400">Define instalment schedules tower-wise or project-wise, tied to actual construction progress.</p>
+                        </div>
+                        <div class="feature-detail bright">
+                            <h4 class="font-semibold text-white mb-1">Construction update tracking</h4>
+                            <p class="text-sm text-gray-400">Milestone-by-milestone progress per tower. Your sales team always has current site status.</p>
+                        </div>
+                        <div class="feature-detail bright">
+                            <h4 class="font-semibold text-white mb-1">Document management</h4>
+                            <p class="text-sm text-gray-400">Technical approval docs, land documents, legal documents, booking documents, and post-booking documents — all in one place.</p>
+                        </div>
+                        <div class="feature-detail bright">
+                            <h4 class="font-semibold text-white mb-1">Role-based access</h4>
+                            <p class="text-sm text-gray-400">Admin creates and manages; Sales Managers and Executives see only what is intended for them.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal lg:sticky lg:top-28">
+                    <div class="glass rounded-3xl p-8 border border-white/10">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-lg bg-bright/20 flex items-center justify-center"><i data-lucide="layers" class="w-5 h-5 text-bright"></i></div>
+                            <h3 class="font-bold text-lg">Project Wizard Steps</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
+                                <div class="w-8 h-8 rounded-full bg-bright flex items-center justify-center text-sm font-bold flex-shrink-0">1</div>
+                                <div><div class="font-semibold text-sm">Project Information</div><div class="text-xs text-gray-400">Name, type, location, SPOC</div></div>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
+                                <div class="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-sm font-bold flex-shrink-0">2</div>
+                                <div><div class="font-semibold text-sm">Construction & RERA</div><div class="text-xs text-gray-400">Land area, FSI, RERA numbers</div></div>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
+                                <div class="w-8 h-8 rounded-full bg-success flex items-center justify-center text-sm font-bold flex-shrink-0">3</div>
+                                <div><div class="font-semibold text-sm">Configuration</div><div class="text-xs text-gray-400">Towers, floors, unit types, parking</div></div>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
+                                <div class="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center text-sm font-bold flex-shrink-0">4</div>
+                                <div><div class="font-semibold text-sm">Documents</div><div class="text-xs text-gray-400">Legal, technical, marketing materials</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Management -->
+    <section id="leads" class="relative py-24 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-deep-900 via-[#0d1f35] to-deep-900"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <div class="reveal order-2 lg:order-1">
+                    <div class="glass rounded-3xl p-8 border border-white/10">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center"><i data-lucide="git-branch" class="w-5 h-5 text-accent"></i></div>
+                            <h3 class="font-bold text-lg">Lead Lifecycle</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-gray-500"></div><span class="text-sm text-gray-300">Interested</span></div>
+                            <div class="flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-bright"></div><span class="text-sm text-gray-300">Meeting Done</span></div>
+                            <div class="flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-accent"></div><span class="text-sm text-gray-300">Site Visit</span></div>
+                            <div class="flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-orange-500"></div><span class="text-sm text-gray-300">Negotiation / Unit Hold</span></div>
+                            <div class="flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-purple-500"></div><span class="text-sm text-gray-300">Booking Created</span></div>
+                            <div class="flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-success"></div><span class="text-sm text-gray-300">Booking Confirmed → Customer</span></div>
+                        </div>
+                        <div class="mt-6 p-4 rounded-xl bg-accent/10 border border-accent/20">
+                            <div class="flex items-center gap-2 mb-2"><i data-lucide="lock" class="w-4 h-4 text-accent"></i><span class="text-sm font-semibold text-accent">Unit Hold Protection</span></div>
+                            <p class="text-xs text-gray-400">Soft-block a unit at negotiation so no other customer, GK team member, or developer can access it until the deal closes or falls through.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal order-1 lg:order-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center"><i data-lucide="target" class="w-6 h-6 text-accent"></i></div>
+                        <span class="text-accent font-semibold tracking-wider uppercase text-sm">Lead Management</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Every lead, every activity, every next step — <span class="gradient-text">tracked</span></h2>
+                    <div class="space-y-6 text-gray-300">
+                        <div class="feature-detail accent">
+                            <h4 class="font-semibold text-white mb-1">Full lifecycle stages</h4>
+                            <p class="text-sm text-gray-400">Interested → Meeting Done → Site Visit → Negotiation / Unit Hold → Booking Created → Booking Confirmed → Customer.</p>
+                        </div>
+                        <div class="feature-detail accent">
+                            <h4 class="font-semibold text-white mb-1">Unit hold at negotiation</h4>
+                            <p class="text-sm text-gray-400">Soft-block a unit so no other party can access it until the deal closes or is released.</p>
+                        </div>
+                        <div class="feature-detail accent">
+                            <h4 class="font-semibold text-white mb-1">Multiple meetings & site visits</h4>
+                            <p class="text-sm text-gray-400">Log multiple interactions per lead with full timeline history and mandatory remarks.</p>
+                        </div>
+                        <div class="feature-detail accent">
+                            <h4 class="font-semibold text-white mb-1">Co-owner KYC</h4>
+                            <p class="text-sm text-gray-400">Add co-owners with full identity documentation (Aadhaar, PAN, Driving Licence, Passport), employment proof, and income proof.</p>
+                        </div>
+                        <div class="feature-detail accent">
+                            <h4 class="font-semibold text-white mb-1">Lead filters & transfer</h4>
+                            <p class="text-sm text-gray-400">Filter by geography, source, status, category, and resident status. Reassign leads between executives with full data transfer.</p>
+                        </div>
+                        <div class="feature-detail accent">
+                            <h4 class="font-semibold text-white mb-1">Booking workflow</h4>
+                            <p class="text-sm text-gray-400">Select project, tower, and unit; system calculates price breakdown; upload booking documents; submit for Admin approval.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Management -->
+    <section class="relative py-24 bg-deep-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="reveal mb-12">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-success/20 flex items-center justify-center"><i data-lucide="user-check" class="w-6 h-6 text-success"></i></div>
+                    <span class="text-success font-semibold tracking-wider uppercase text-sm">Customer Management</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Post-booking relationships managed the <span class="gradient-text">right way</span></h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass rounded-2xl p-6 reveal card-hover">
+                    <div class="w-10 h-10 rounded-lg bg-success/20 flex items-center justify-center mb-4"><i data-lucide="clipboard-list" class="w-5 h-5 text-success"></i></div>
+                    <h4 class="font-bold mb-2">Customer Profiling</h4>
+                    <p class="text-sm text-gray-400">CIBIL score and other profiling captured at the customer stage.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 100ms;">
+                    <div class="w-10 h-10 rounded-lg bg-success/20 flex items-center justify-center mb-4"><i data-lucide="credit-card" class="w-5 h-5 text-success"></i></div>
+                    <h4 class="font-bold mb-2">Payment Plan Tracking</h4>
+                    <p class="text-sm text-gray-400">Amounts payable, paid, pending, and next due date — always current.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 200ms;">
+                    <div class="w-10 h-10 rounded-lg bg-success/20 flex items-center justify-center mb-4"><i data-lucide="file-text" class="w-5 h-5 text-success"></i></div>
+                    <h4 class="font-bold mb-2">Demand Management</h4>
+                    <p class="text-sm text-gray-400">All demand letters and demands raised for each unit managed through the platform.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 300ms;">
+                    <div class="w-10 h-10 rounded-lg bg-success/20 flex items-center justify-center mb-4"><i data-lucide="folder-heart" class="w-5 h-5 text-success"></i></div>
+                    <h4 class="font-bold mb-2">Document Management</h4>
+                    <p class="text-sm text-gray-400">Booking form, allotment letter, BBA, TPA, and conveyance deed all managed within the customer record.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 400ms;">
+                    <div class="w-10 h-10 rounded-lg bg-success/20 flex items-center justify-center mb-4"><i data-lucide="message-square" class="w-5 h-5 text-success"></i></div>
+                    <h4 class="font-bold mb-2">Query Management with Banks</h4>
+                    <p class="text-sm text-gray-400">Structured query flow between your customers, GetKredit, and the bank handling their home loan.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 500ms;">
+                    <div class="w-10 h-10 rounded-lg bg-success/20 flex items-center justify-center mb-4"><i data-lucide="check-circle" class="w-5 h-5 text-success"></i></div>
+                    <h4 class="font-bold mb-2">Full & Final Settlement</h4>
+                    <p class="text-sm text-gray-400">Calculate final amount, apply discounts or charges, generate settlement statement, and mark as settled.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APF & Home Loan -->
+    <section id="apf" class="relative py-24 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-deep-900 via-[#0d1f35] to-deep-900"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-bright/20 flex items-center justify-center"><i data-lucide="landmark" class="w-6 h-6 text-bright"></i></div>
+                </div>
+                <span class="text-bright font-semibold tracking-wider uppercase text-sm">APF & Home Loan Management</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">From bank selection to disbursement — <span class="gradient-text">end to end</span></h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <div class="glass rounded-3xl p-8 reveal">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3"><i data-lucide="shield-check" class="w-6 h-6 text-bright"></i>Approved Project Finance (APF)</h3>
+                    <div class="space-y-4">
+                        <div class="feature-detail bright">
+                            <h4 class="font-semibold text-white text-sm mb-1">Bank / FI database management</h4>
+                            <p class="text-xs text-gray-400">Curated database of empanelled banks with product profiles, interest rates, LTV ratios, CIBIL ranges, and APF history.</p>
+                        </div>
+                        <div class="feature-detail bright">
+                            <h4 class="font-semibold text-white text-sm mb-1">Due diligence coordination</h4>
+                            <p class="text-xs text-gray-400">Legal DD, Technical DD, and Regulatory DD (RERA) coordinated with empanelled consultants through the platform.</p>
+                        </div>
+                        <div class="feature-detail bright">
+                            <h4 class="font-semibold text-white text-sm mb-1">Multi-way query management</h4>
+                            <p class="text-xs text-gray-400">Any party can raise and respond to queries on APF documents directly in the platform.</p>
+                        </div>
+                        <div class="feature-detail bright">
+                            <h4 class="font-semibold text-white text-sm mb-1">APF issuance tracking</h4>
+                            <p class="text-xs text-gray-400">Unique APF code assigned; approved units, pricing, and developer details mapped; validity tracked with renewal alerts.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass rounded-3xl p-8 reveal" style="transition-delay: 100ms;">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3"><i data-lucide="banknote" class="w-6 h-6 text-success"></i>Home Loan Processing</h3>
+                    <div class="space-y-4">
+                        <div class="feature-detail success">
+                            <h4 class="font-semibold text-white text-sm mb-1">Customer calling and profiling</h4>
+                            <p class="text-xs text-gray-400">Structured call logging with CIBIL checks, income verification, and asset validation.</p>
+                        </div>
+                        <div class="feature-detail success">
+                            <h4 class="font-semibold text-white text-sm mb-1">FI matching</h4>
+                            <p class="text-xs text-gray-400">Select the most suitable APF-approved bank for each customer's profile; DSA agreement management.</p>
+                        </div>
+                        <div class="feature-detail success">
+                            <h4 class="font-semibold text-white text-sm mb-1">Loan stage tracking</h4>
+                            <p class="text-xs text-gray-400">Submission → Sanction → Documentation → Disbursement, tracked per customer.</p>
+                        </div>
+                        <div class="feature-detail success">
+                            <h4 class="font-semibold text-white text-sm mb-1">Post-disbursement tracking</h4>
+                            <p class="text-xs text-gray-400">Outstanding amounts, next demand eligibility, and ongoing follow-ups managed in the platform.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calling Process -->
+    <section id="calling" class="relative py-24 bg-deep-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <div class="reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center"><i data-lucide="phone-call" class="w-6 h-6 text-accent"></i></div>
+                        <span class="text-accent font-semibold tracking-wider uppercase text-sm">Calling Process & Performance</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Structured calling. <span class="gradient-text">Zero missed conversions.</span></h2>
+                    <div class="space-y-6 text-gray-300">
+                        <div class="feature-detail accent">
+                            <h4 class="font-semibold text-white mb-1">Assigned calling dates</h4>
+                            <p class="text-sm text-gray-400">Every customer assigned to a specific Sales Manager with an auto-set calling date.</p>
+                        </div>
+                        <div class="feature-detail accent">
+                            <h4 class="font-semibold text-white mb-1">Call logging</h4>
+                            <p class="text-sm text-gray-400">Call Status (Picked / Not Picked), Call Remark, Reason (dropdown), and Additional Remark (mandatory decision-driving field).</p>
+                        </div>
+                        <div class="feature-detail accent">
+                            <h4 class="font-semibold text-white mb-1">Follow-up logic</h4>
+                            <p class="text-sm text-gray-400">System categorises intent (High / Medium / Low) and auto-assigns next calling date based on the Additional Remark.</p>
+                        </div>
+                        <div class="feature-detail accent">
+                            <h4 class="font-semibold text-white mb-1">TAT tracking</h4>
+                            <p class="text-sm text-gray-400">Turnaround Time measured per call; delayed calls tracked separately. Escalation triggers same-day notification.</p>
+                        </div>
+                        <div class="feature-detail accent">
+                            <h4 class="font-semibold text-white mb-1">Performance analysis</h4>
+                            <p class="text-sm text-gray-400">Total Calls Assigned vs Done vs Remaining; Effective vs Non-Effective; On-Time vs Delayed; root cause analysis for every non-effective call.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <div class="glass rounded-3xl p-8 border border-white/10">
+                        <h3 class="font-bold text-lg mb-6">What Gets Measured</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center p-4 rounded-xl bg-white/5">
+                                <span class="text-sm text-gray-300">Total Calls Assigned vs Done</span>
+                                <span class="text-xs text-accent font-semibold">Is your SM making calls?</span>
+                            </div>
+                            <div class="flex justify-between items-center p-4 rounded-xl bg-white/5">
+                                <span class="text-sm text-gray-300">Effective vs Non-Effective</span>
+                                <span class="text-xs text-accent font-semibold">Are calls driving decisions?</span>
+                            </div>
+                            <div class="flex justify-between items-center p-4 rounded-xl bg-white/5">
+                                <span class="text-sm text-gray-300">On-Time vs Delayed</span>
+                                <span class="text-xs text-accent font-semibold">Is the team on schedule?</span>
+                            </div>
+                            <div class="flex justify-between items-center p-4 rounded-xl bg-white/5">
+                                <span class="text-sm text-gray-300">Recovery Conversions</span>
+                                <span class="text-xs text-accent font-semibold">Not Interested → Interested</span>
+                            </div>
+                            <div class="flex justify-between items-center p-4 rounded-xl bg-white/5">
+                                <span class="text-sm text-gray-300">File Logins</span>
+                                <span class="text-xs text-accent font-semibold">Loan processes initiated</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-4 rounded-xl bg-bright/10 border border-bright/20">
+                            <div class="flex items-center gap-2 mb-2"><i data-lucide="zap" class="w-4 h-4 text-bright"></i><span class="text-sm font-semibold text-bright">Auto Follow-Up Logic</span></div>
+                            <p class="text-xs text-gray-400">High Intent → 12 hours. Current Concern → targeted follow-up. Future Potential → milestone-based. Low Priority → weekly tracking.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MIS & Reporting -->
+    <section id="mis" class="relative py-24 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-deep-900 via-[#0d1f35] to-deep-900"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="text-purple-400 font-semibold tracking-wider uppercase text-sm">MIS & Reporting</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">Know your numbers — <span class="gradient-text">always</span></h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass rounded-2xl p-6 reveal card-hover">
+                    <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4"><i data-lucide="layout-dashboard" class="w-5 h-5 text-purple-400"></i></div>
+                    <h4 class="font-bold mb-2">Role-Specific Dashboards</h4>
+                    <p class="text-sm text-gray-400">Admin, Sales Manager, Broker roles see the metrics relevant to them.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 100ms;">
+                    <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4"><i data-lucide="calendar-check" class="w-5 h-5 text-purple-400"></i></div>
+                    <h4 class="font-bold mb-2">Calendar-First Experience</h4>
+                    <p class="text-sm text-gray-400">To-Dos and tasks displayed on login so no follow-up is ever missed.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 200ms;">
+                    <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4"><i data-lucide="bar-chart-2" class="w-5 h-5 text-purple-400"></i></div>
+                    <h4 class="font-bold mb-2">Real-Time Metrics</h4>
+                    <p class="text-sm text-gray-400">Leads, conversions, targets, brokerage activity — all displayed in real-time.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 300ms;">
+                    <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4"><i data-lucide="file-bar-chart" class="w-5 h-5 text-purple-400"></i></div>
+                    <h4 class="font-bold mb-2">Basic Reports In-Platform</h4>
+                    <p class="text-sm text-gray-400">Data reports generated directly in GetKredit for everyday use.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover md:col-span-2" style="transition-delay: 400ms;">
+                    <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4"><i data-lucide="plug" class="w-5 h-5 text-purple-400"></i></div>
+                    <h4 class="font-bold mb-2">Advanced Reporting & Integrations</h4>
+                    <p class="text-sm text-gray-400">Data endpoints exposed for integration with Zoho Analytics or equivalent BI tools. Pull your GetKredit data into your existing analytics stack.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team & Broker Management -->
+    <section id="broker" class="relative py-24 bg-deep-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-bright/20 flex items-center justify-center"><i data-lucide="users" class="w-6 h-6 text-bright"></i></div>
+                        <span class="text-bright font-semibold tracking-wider uppercase text-sm">Team Management</span>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6">Your team, your targets, <span class="gradient-text">your way</span></h2>
+                    <div class="space-y-4">
+                        <div class="feature-detail bright">
+                            <h4 class="font-semibold text-white text-sm mb-1">Sales Executive management</h4>
+                            <p class="text-xs text-gray-400">Add, assign, and remove executives; full lead transfer on removal.</p>
+                        </div>
+                        <div class="feature-detail bright">
+                            <h4 class="font-semibold text-white text-sm mb-1">Performance tracking</h4>
+                            <p class="text-xs text-gray-400">Qualitative ratings (1–5 scale) and quantitative metrics tracked in real time.</p>
+                        </div>
+                        <div class="feature-detail bright">
+                            <h4 class="font-semibold text-white text-sm mb-1">Target setting</h4>
+                            <p class="text-xs text-gray-400">Set individual and team-level targets; tracked in real time; separate allocations for each role.</p>
+                        </div>
+                        <div class="feature-detail bright">
+                            <h4 class="font-semibold text-white text-sm mb-1">To-Do calendar</h4>
+                            <p class="text-xs text-gray-400">Assign tasks with priority levels (High / Medium / Low), reminders, and calendar view.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal" style="transition-delay: 100ms;">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center"><i data-lucide="handshake" class="w-6 h-6 text-accent"></i></div>
+                        <span class="text-accent font-semibold tracking-wider uppercase text-sm">Broker Management</span>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6">Manage your broker network. <span class="gradient-text">Drive more referrals.</span></h2>
+                    <div class="space-y-4">
+                        <div class="feature-detail accent">
+                            <h4 class="font-semibold text-white text-sm mb-1">Broker onboarding</h4>
+                            <p class="text-xs text-gray-400">Company-level and individual broker profiles; sub-broker management under each broker.</p>
+                        </div>
+                        <div class="feature-detail accent">
+                            <h4 class="font-semibold text-white text-sm mb-1">Lead tracking</h4>
+                            <p class="text-xs text-gray-400">See every lead sourced by each broker, with full status visibility.</p>
+                        </div>
+                        <div class="feature-detail accent">
+                            <h4 class="font-semibold text-white text-sm mb-1">Brokerage & incentive management</h4>
+                            <p class="text-xs text-gray-400">Track commissions, manage payouts, and give brokers visibility into their earnings.</p>
+                        </div>
+                        <div class="feature-detail accent">
+                            <h4 class="font-semibold text-white text-sm mb-1">Broker performance</h4>
+                            <p class="text-xs text-gray-400">Broker Admin can track individual broker targets and performance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approvals & Security -->
+    <section class="relative py-24 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-deep-900 via-[#0d1f35] to-deep-900"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass rounded-3xl p-8 reveal">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-success/20 flex items-center justify-center"><i data-lucide="check-square" class="w-6 h-6 text-success"></i></div>
+                        <h3 class="text-xl font-bold">Approvals & Requests</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">No booking goes through without your sign-off. Every booking request, unit change, lead transfer, and cancellation flows through a structured approval process.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-sm text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 text-success flex-shrink-0"></i>Approval queue with structured workflow</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 text-success flex-shrink-0"></i>Approve, Reject, or To Be Reviewed</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 text-success flex-shrink-0"></i>Mandatory remark on every decision</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 text-success flex-shrink-0"></i>Requester visibility into status</li>
+                    </ul>
+                </div>
+                <div class="glass rounded-3xl p-8 reveal" style="transition-delay: 100ms;">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-bright/20 flex items-center justify-center"><i data-lucide="shield" class="w-6 h-6 text-bright"></i></div>
+                        <h3 class="text-xl font-bold">Security & Compliance</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">Enterprise-grade security. RERA-compliant by design. Your data is protected at every layer.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-sm text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 text-bright flex-shrink-0"></i>OTP-based login for all users</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 text-bright flex-shrink-0"></i>Role-based access control</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 text-bright flex-shrink-0"></i>KYC & financial data encrypted</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 text-bright flex-shrink-0"></i>RERA-compliant documentation workflows</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 text-bright flex-shrink-0"></i>DSA agreement management with banks/FIs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="relative py-24 bg-deep-900">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center reveal">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Want a module-by-module <span class="gradient-text">walkthrough?</span></h2>
+            <a href="index.html#contact" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold text-white inline-flex items-center gap-2">
+                Book a 30-Minute Demo
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative border-t border-white/10 pt-20 pb-10 bg-deep-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="assets/getKredit.png" alt="Logo" class="w-50 h-10 rounded-xl object-cover">
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">Real Estate & Credit Management Platform. Manage every project, lead, customer, and home loan from one place.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-bright/20 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-bright/20 transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-bright/20 transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-bright/20 transition-colors"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="features.html" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="builders.html" class="hover:text-white transition-colors">Builders</a></li>
+                        <li><a href="how-it-works.html" class="hover:text-white transition-colors">How It Works</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Product</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="features.html#project" class="hover:text-white transition-colors">Project & Inventory</a></li>
+                        <li><a href="features.html#leads" class="hover:text-white transition-colors">Lead Management</a></li>
+                        <li><a href="features.html#apf" class="hover:text-white transition-colors">APF & Home Loan</a></li>
+                        <li><a href="features.html#calling" class="hover:text-white transition-colors">Calling Process</a></li>
+                        <li><a href="features.html#mis" class="hover:text-white transition-colors">MIS & Reporting</a></li>
+                        <li><a href="features.html#broker" class="hover:text-white transition-colors">Broker Management</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Contact</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i>hello@getkredit.in</li>
+                        <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4"></i>New Rajender Nagar, Delhi</li>
+                        <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4"></i>Mon–Fri 9AM–6PM IST</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500">© 2026 GetKredit Technologies Pvt. Ltd. All rights reserved.</p>
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition-colors">Security</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        document.querySelectorAll('a, button, input, textarea, select').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+        });
+    </script>
+</body>
+</html>
