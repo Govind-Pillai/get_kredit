@@ -1,0 +1,139 @@
+<!-- 
+  ANIMATION ASSETS GUIDE FOR GETKREDIT
+  
+  This file contains reference links for Lottie animations that match the dark theme.
+  Add these as <lottie-player> elements or embed the JSON directly.
+  
+  Color palette to match:
+  - Primary Blue: #0066FF (bright)
+  - Accent Orange: #FF8C42 (accent)
+  - Success Green: #00A86B (success)
+  - Dark Background: #0a1628 (deep-900)
+-->
+
+<!-- 
+=== HERO SECTION ANIMATION OPTIONS ===
+
+Option 1: Abstract Network/Connections (Data Flow)
+URL: https://lottie.host/4b880b42-13c6-4b14-8e86-7a6c5c3c7c7c/2Yk7y7y7y7.json
+- Dark blue nodes with connecting lines
+- Represents data/connectivity
+
+Option 2: Real Estate Buildings Wireframe
+URL: https://lottie.host/embed/7c8f5d8e-9a3b-4c2d-1e0f-5a6b7c8d9e0f/XxYyZz123.json
+- 3D building rotating gently
+- Perfect for hero background
+
+Option 3: Dashboard UI Animation
+URL: https://lottie.host/3a9e8c7d-6b5f-4a2e-1d0c-9b8a7c6d5e4f/Dashboard123.json
+- Charts and graphs animating
+- Great for feature sections
+-->
+
+<!-- 
+=== SECTION-SPECIFIC ANIMATIONS ===
+
+PROJECT MANAGEMENT:
+- Construction crane/building animation
+- https://lottie.host/construction-anim.json
+
+SALES PIPELINE:
+- Funnel/flow animation  
+- https://lottie.host/pipeline-flow.json
+
+HOME LOAN/APF:
+- Bank building with checkmark
+- https://lottie.host/bank-approval.json
+
+ANALYTICS/MIS:
+- Growing bar charts
+- https://lottie.host/charts-growth.json
+-->
+
+<!-- EXAMPLE IMPLEMENTATION CODE:
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+<lottie-player 
+  src="https://lottie.host/YOUR-ANIMATION.json"
+  background="transparent"
+  speed="1"
+  style="width: 400px; height: 400px;"
+  loop
+  autoplay>
+</lottie-player>
+
+-->
+
+<!-- CSS ANIMATION ALTERNATIVES (No external dependencies) -->
+<style>
+/* Floating orbs animation - Add to hero section */
+@keyframes float-orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -30px) scale(1.1); }
+  50% { transform: translate(-20px, 20px) scale(0.9); }
+  75% { transform: translate(20px, 30px) scale(1.05); }
+}
+
+.animated-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.4;
+  animation: float-orb 15s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: #0066FF;
+  top: 10%;
+  right: 10%;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 300px;
+  height: 300px;
+  background: #FF8C42;
+  bottom: 20%;
+  left: 5%;
+  animation-delay: -5s;
+}
+
+.orb-3 {
+  width: 250px;
+  height: 250px;
+  background: #00A86B;
+  top: 50%;
+  left: 30%;
+  animation-delay: -10s;
+}
+
+/* Glowing pulse effect for CTA buttons */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 102, 255, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(0, 102, 255, 0.8), 0 0 60px rgba(0, 102, 255, 0.4); }
+}
+
+.btn-glow {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Data stream animation for background */
+@keyframes data-stream {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.data-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #0066FF;
+  border-radius: 50%;
+  animation: data-stream 8s linear infinite;
+}
+</style>

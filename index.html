@@ -35,6 +35,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     
     <!-- Custom Assets -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -94,10 +95,18 @@
 
     <!-- Hero -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 mesh-gradient">
+        <!-- Animated background orbs -->
+        <div class="animated-orb orb-blue top-0 -right-32"></div>
+        <div class="animated-orb orb-orange bottom-0 -left-32"></div>
+        <div class="animated-orb orb-green top-1/2 left-1/4"></div>
         <div class="floating-shape w-96 h-96 bg-bright/30 top-20 -left-48"></div>
         <div class="floating-shape w-80 h-80 bg-accent/20 bottom-20 -right-40" style="animation-delay: -5s;"></div>
         <div class="floating-shape w-64 h-64 bg-success/20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" style="animation-delay: -2s;"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20 text-center">
+            <!-- City Building GIF - Floating decoration -->
+            <!--<div class="absolute right-0 top-1/4 w-480 h-480 md:w-64 md:h-64 opacity-80 pointer-events-none animate-float hidden lg:block" style="z-index: -1;">
+                <img src="assets/City Building.gif" alt="City Buildings" class="w-full h-full object-contain rounded-2xl">
+            </div>-->
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 reveal">
                 <span class="w-2 h-2 rounded-full bg-success animate-pulse"></span>
                 <span class="text-sm font-medium text-gray-300">Trusted by developer groups across India's fastest-growing markets</span>
@@ -105,14 +114,14 @@
             <p class="text-lg md:text-xl text-gray-400 mb-4 reveal tracking-wide uppercase font-semibold">Your Projects Deserve More Than a Spreadsheet.</p>
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 reveal">
                 <span class="block text-white">Transform Your</span>
-                <span class="gradient-text italic font-serif">Real Estate</span>
+                <span class="shimmer-text italic font-serif">Real Estate</span>
                 <span class="block text-white">Sales Journey</span>
             </h1>
             <p class="mt-6 text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed reveal">
                 Manage every project, lead, customer, and home loan from one place. Built for builders who move fast and need clarity at every step.
             </p>
             <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center reveal">
-                <a href="#contact" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold text-white flex items-center justify-center gap-2 group">
+                <a href="#contact" class="btn-primary btn-glow px-8 py-4 rounded-full text-lg font-semibold text-white flex items-center justify-center gap-2 group">
                     Request a Demo
                     <i data-lucide="calendar" class="w-5 h-5 group-hover:rotate-12 transition-transform"></i>
                 </a>
@@ -122,26 +131,57 @@
                 </a>
             </div>
             <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto reveal">
-                <div class="glass rounded-2xl p-6 text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">360°</div>
+                <div class="glass rounded-2xl p-6 text-center card-hover">
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1 stat-glow">360°</div>
                     <div class="text-sm text-gray-400">Project Visibility</div>
                 </div>
-                <div class="glass rounded-2xl p-6 text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-success mb-1">100%</div>
+                <div class="glass rounded-2xl p-6 text-center card-hover">
+                    <div class="text-3xl md:text-4xl font-bold text-success mb-1 stat-glow">100%</div>
                     <div class="text-sm text-gray-400">RERA-Compliant Workflows</div>
                 </div>
-                <div class="glass rounded-2xl p-6 text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-bright mb-1">Multi-bank</div>
+                <div class="glass rounded-2xl p-6 text-center card-hover">
+                    <div class="text-3xl md:text-4xl font-bold text-bright mb-1 stat-glow">Multi-bank</div>
                     <div class="text-sm text-gray-400">APF Management</div>
                 </div>
-                <div class="glass rounded-2xl p-6 text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-accent mb-1">RERA-ready</div>
+                <div class="glass rounded-2xl p-6 text-center card-hover">
+                    <div class="text-3xl md:text-4xl font-bold text-accent mb-1 stat-glow">RERA-ready</div>
                     <div class="text-sm text-gray-400">Out of the Box</div>
                 </div>
             </div>
         </div>
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
             <i data-lucide="chevron-down" class="w-6 h-6 text-gray-500"></i>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview -->
+    <section class="relative py-16 bg-deep-900 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="relative reveal">
+                <!-- Browser frame mockup -->
+                <div class="gradient-border rounded-2xl p-1">
+                    <div class="bg-deep-900 rounded-xl overflow-hidden shadow-2xl">
+                        <!-- Browser chrome -->
+                        <div class="bg-white/5 px-4 py-3 flex items-center gap-2 border-b border-white/10">
+                            <div class="flex gap-1.5">
+                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                            </div>
+                            <div class="flex-1 mx-4">
+                                <div class="bg-white/10 rounded-md px-3 py-1 text-xs text-gray-400 text-center">app.getkredit.in/dashboard</div>
+                            </div>
+                        </div>
+                        <!-- Dashboard Screenshot -->
+                        <div class="p-0 overflow-hidden">
+                            <img src="assets/screenshots/Screenshot 2026-04-24 121959.png" alt="GetKredit Dashboard" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+                <!-- Floating decoration -->
+                <div class="absolute -top-4 -right-4 w-24 h-24 bg-bright/20 rounded-full blur-2xl"></div>
+                <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/20 rounded-full blur-2xl"></div>
+            </div>
         </div>
     </section>
 
@@ -178,6 +218,12 @@
                 </div>
             </div>
             <div class="text-center reveal">
+                <!-- Real Estate GIF decoration -->
+                <div class="flex justify-center mb-8">
+                    <div class="w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden glass p-2 animate-float-delayed">
+                        <img src="assets/real estate.gif" alt="Real Estate" class="w-full h-full object-cover rounded-xl">
+                    </div>
+                </div>
                 <p class="text-xl md:text-2xl text-white font-semibold mb-8">GetKredit fixes all of it — in one platform your entire team can use from day one.</p>
                 <a href="#contact" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold text-white inline-flex items-center gap-2">
                     Book a Free Demo
@@ -309,7 +355,7 @@
         </div>
     </section>
 
-    <!-- Testimonial -->
+    <!-- Testimonial 
     <section class="relative py-24 bg-deep-900 border-y border-white/10">
         <div class="max-w-5xl mx-auto px-6 lg:px-8 text-center reveal">
             <i data-lucide="quote" class="w-12 h-12 text-bright/30 mx-auto mb-6"></i>
@@ -325,7 +371,7 @@
             </div>
         </div>
     </section>
-
+-->
     <!-- Contact -->
     <section id="contact" class="relative py-32 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">

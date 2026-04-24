@@ -47,3 +47,126 @@ body { background-color: #0a1628; color: #ffffff; overflow-x: hidden; }
 .comparison-row:nth-child(even) { background: rgba(255,255,255,0.02); }
 .comparison-row { transition: background 0.2s; }
 .comparison-row:hover { background: rgba(255,255,255,0.05); }
+
+/* Animated Background Orbs */
+@keyframes float-orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -30px) scale(1.1); }
+  50% { transform: translate(-20px, 20px) scale(0.9); }
+  75% { transform: translate(20px, 30px) scale(1.05); }
+}
+
+.animated-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  animation: float-orb 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.orb-blue {
+  width: 500px;
+  height: 500px;
+  background: #0066FF;
+  animation-delay: 0s;
+}
+
+.orb-orange {
+  width: 400px;
+  height: 400px;
+  background: #FF8C42;
+  animation-delay: -7s;
+}
+
+.orb-green {
+  width: 350px;
+  height: 350px;
+  background: #00A86B;
+  animation-delay: -14s;
+}
+
+/* Glowing pulse effect for CTAs */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 102, 255, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(0, 102, 255, 0.8), 0 0 60px rgba(0, 102, 255, 0.4); }
+}
+
+.btn-glow {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Shimmer effect for featured elements */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #fff 0%, #0066FF 50%, #fff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Floating cards animation */
+@keyframes card-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+.animate-float {
+  animation: card-float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: card-float 6s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+/* Gradient border animation */
+@keyframes rotate-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-border {
+  position: relative;
+  background: linear-gradient(135deg, #0a1628, #0a1628);
+  border-radius: 1rem;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, #0066FF, #FF8C42, #00A86B, #0066FF);
+  background-size: 300% 300%;
+  animation: rotate-gradient 4s ease infinite;
+  z-index: -1;
+}
+
+/* Scroll indicator animation */
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* Stats counter glow */
+.stat-glow {
+  text-shadow: 0 0 30px rgba(0, 102, 255, 0.5), 0 0 60px rgba(0, 102, 255, 0.3);
+}
+
+/* Feature icon pulse */
+@keyframes icon-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.icon-pulse:hover {
+  animation: icon-pulse 0.5s ease-in-out;
+}
