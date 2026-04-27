@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetKredit — Banking Partners</title>
+    <link rel="icon" href="assets\logo.png" />
+    <meta name="description" content="Partner with GetKredit for pre-qualified home loan applications, streamlined APF management, and access to verified developer projects across India.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Frameworks & Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        deep: { 900: '#0a1628', 800: '#104960', 700: '#155e7a' },
+                        bright: '#0066FF',
+                        accent: '#FF8C42',
+                        success: '#00A86B',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
+    <!-- Custom Assets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .custom-cursor {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #0066FF;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.15s ease-out;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
+        .custom-cursor.hovering {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 102, 255, 0.2);
+            border-color: #00A86B;
+        }
+        @media (max-width: 768px) {
+            .custom-cursor { display: none; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-bright selection:text-white">
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="noise"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="glass-strong border-b border-white/10">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <a href="index.html" class="flex items-center gap-3 cursor-pointer">
+                        <img src="assets/getKredit.png" alt="Logo" class="w-50 h-10 rounded-xl object-cover">
+                    </a>
+                    <div class="hidden md:flex items-center gap-8">
+                        <a href="index.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Home</a>
+                        <a href="features.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Features</a>
+                        <a href="builders.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Builders</a>
+                        <a href="banks.html" class="nav-link active text-sm font-medium text-white transition-colors">Banks</a>
+                        <a href="home_buyer.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Home Buyers</a>
+                        <a href="how-it-works.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">How It Works</a>
+                        <a href="about.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">About Us</a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="http://3.6.109.118" class="hidden md:block text-sm font-medium text-gray-300 hover:text-white transition-colors">Log In</a>
+                        <a href="index.html#contact" class="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold text-white flex items-center gap-2">Partner With Us<i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-20 mesh-gradient">
+        <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 py-20 text-center">
+            <span class="text-success font-semibold tracking-wider uppercase text-sm reveal">Banking Partnerships</span>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mt-6 mb-6 reveal">
+                Pre-Qualified Applications. <span class="gradient-text italic font-serif">Verified Projects.</span> Higher Conversions.
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed reveal">
+                GetKredit brings you profile-matched home loan applications from buyers of APF-approved projects — complete documentation upfront, structured query management, and a recurring pipeline of qualified customers.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center reveal">
+                <a href="index.html#contact" class="btn-primary btn-glow px-8 py-4 rounded-full text-lg font-semibold text-white inline-flex items-center gap-2">
+                    Partner With Us
+                    <i data-lucide="handshake" class="w-5 h-5"></i>
+                </a>
+                <a href="index.html#contact" class="glass px-8 py-4 rounded-full text-lg font-semibold text-white hover:bg-white/10 transition-all inline-flex items-center gap-2">
+                    Talk to Our Credit Team
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What GetKredit Offers Banks -->
+    <section class="relative py-32 bg-deep-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">What GetKredit <span class="gradient-text">Delivers</span> to Your Credit Team</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">No speculative leads. No incomplete files. No chasing developers for missing documents.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass rounded-3xl p-8 card-hover reveal border-t-4 border-success">
+                    <div class="w-14 h-14 rounded-2xl bg-success/20 flex items-center justify-center mb-6">
+                        <i data-lucide="filter" class="w-7 h-7 text-success"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Profile-Matched Applications Only</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">We do not blast your inbox with every inquiry. Your eligibility criteria — CIBIL range, income type, LTV ratios, preferred asset class — are mapped in our database. Only customers who match your profile receive your application.</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">This means higher conversion rates, faster processing, and fewer declined applications wasting your credit team's time.</p>
+                </div>
+                <div class="glass rounded-3xl p-8 card-hover reveal border-t-4 border-bright" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-bright/20 flex items-center justify-center mb-6">
+                        <i data-lucide="file-check" class="w-7 h-7 text-bright"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Complete Documentation Upfront</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">By the time an application reaches your desk, GetKredit has already collected and verified: CIBIL report, income proof, employment verification, identity documents, property booking details, and co-applicant KYC.</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">You receive a structured dossier — not a half-filled form with a phone number.</p>
+                </div>
+                <div class="glass rounded-3xl p-8 card-hover reveal border-t-4 border-accent" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center mb-6">
+                        <i data-lucide="shield-check" class="w-7 h-7 text-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Pre-Verified Project Due Diligence</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Every project we bring for APF has already cleared our DD coordination — legal title verification, technical approvals, RERA registration, and regulatory compliance. Your team reviews our documentation; you do not start from zero.</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">Raise queries through the platform. We coordinate resolution with the developer directly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APF Section -->
+    <section class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-deep-900 via-[#0d1f35] to-deep-900"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <div class="reveal">
+                    <span class="text-success font-semibold tracking-wider uppercase text-sm">Approved Project Finance</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">APF Means <span class="gradient-text">Access to Every Buyer</span> of That Project</h2>
+                    <p class="text-gray-300 text-lg mb-6 leading-relaxed">Once your bank grants APF for a developer's project, every buyer of that project becomes a potential home loan customer for your institution. GetKredit manages the pipeline.</p>
+                    
+                    <div class="space-y-6 mt-8">
+                        <div class="glass rounded-xl p-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-success/20 flex items-center justify-center flex-shrink-0"><i data-lucide="clipboard-list" class="w-5 h-5 text-success"></i></div>
+                                <div>
+                                    <h4 class="font-bold mb-2">Due Diligence, Coordinated</h4>
+                                    <p class="text-sm text-gray-400">Legal, technical, and regulatory verification managed by GetKredit's Credit team. You review structured documentation; we handle developer coordination.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass rounded-xl p-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-bright/20 flex items-center justify-center flex-shrink-0"><i data-lucide="message-square" class="w-5 h-5 text-bright"></i></div>
+                                <div>
+                                    <h4 class="font-bold mb-2">Structured Query Management</h4>
+                                    <p class="text-sm text-gray-400">Raise questions on APF documents or insurance submissions directly through the platform. No email chains. No lost follow-ups. Clear audit trail for compliance.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass rounded-xl p-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0"><i data-lucide="refresh-cw" class="w-5 h-5 text-accent"></i></div>
+                                <div>
+                                    <h4 class="font-bold mb-2">APF Renewal Tracking</h4>
+                                    <p class="text-sm text-gray-400">We track validity periods and coordinate renewals. Your approved projects stay current without manual monitoring.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal lg:sticky lg:top-28">
+                    <div class="glass rounded-3xl p-8 border border-white/10">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-lg bg-success/20 flex items-center justify-center"><i data-lucide="landmark" class="w-5 h-5 text-success"></i></div>
+                            <h3 class="font-bold text-lg">The APF Process on GetKredit</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-success flex items-center justify-center text-sm font-bold flex-shrink-0">1</div>
+                                <div>
+                                    <div class="font-semibold text-sm">Project Review</div>
+                                    <div class="text-xs text-gray-400 mt-1">GetKredit presents project documentation package for your APF consideration</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-bright flex items-center justify-center text-sm font-bold flex-shrink-0">2</div>
+                                <div>
+                                    <div class="font-semibold text-sm">Due Diligence</div>
+                                    <div class="text-xs text-gray-400 mt-1">Legal, technical, and regulatory verification coordinated by GetKredit Credit team</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-sm font-bold flex-shrink-0">3</div>
+                                <div>
+                                    <div class="font-semibold text-sm">APF Approval</div>
+                                    <div class="text-xs text-gray-400 mt-1">Formal approval granted; project units mapped to your bank's scope</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center text-sm font-bold flex-shrink-0">4</div>
+                                <div>
+                                    <div class="font-semibold text-sm">Buyer Pipeline</div>
+                                    <div class="text-xs text-gray-400 mt-1">Profile-matched home loan applications flow to your team as units sell</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-4 rounded-xl bg-success/10 border border-success/20">
+                            <div class="flex items-center gap-2 mb-2"><i data-lucide="trending-up" class="w-4 h-4 text-success"></i><span class="text-sm font-semibold text-success">Recurring Revenue</span></div>
+                            <p class="text-xs text-gray-400">APF is not a one-time transaction. Every unit sold in an approved project is a potential home loan — and GetKredit manages the customer journey to your door.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Steps -->
+    <section class="relative py-32 bg-deep-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">How the Partnership <span class="gradient-text">Works</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">From DSA agreement to your first disbursement — a clear, structured process.</p>
+            </div>
+            <div class="grid md:grid-cols-5 gap-4 reveal">
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-success/20 flex items-center justify-center mx-auto mb-4"><i data-lucide="file-signature" class="w-6 h-6 text-success"></i></div>
+                    <div class="text-sm font-bold mb-2">Step 1</div>
+                    <div class="text-xs text-gray-400">DSA agreement signed; DSA code issued</div>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-bright/20 flex items-center justify-center mx-auto mb-4"><i data-lucide="search" class="w-6 h-6 text-bright"></i></div>
+                    <div class="text-sm font-bold mb-2">Step 2</div>
+                    <div class="text-xs text-gray-400">Project review for APF consideration</div>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-4"><i data-lucide="check-circle" class="w-6 h-6 text-accent"></i></div>
+                    <div class="text-sm font-bold mb-2">Step 3</div>
+                    <div class="text-xs text-gray-400">APF granted; project mapped to your scope</div>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto mb-4"><i data-lucide="users" class="w-6 h-6 text-purple-400"></i></div>
+                    <div class="text-sm font-bold mb-2">Step 4</div>
+                    <div class="text-xs text-gray-400">Profile-matched applications submitted</div>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-success/20 flex items-center justify-center mx-auto mb-4"><i data-lucide="banknote" class="w-6 h-6 text-success"></i></div>
+                    <div class="text-sm font-bold mb-2">Step 5</div>
+                    <div class="text-xs text-gray-400">Your team processes sanctions and disbursements</div>
+                </div>
+            </div>
+            <div class="text-center mt-12 reveal">
+                <p class="text-gray-300 mb-6">GetKredit supports coordination throughout. Your credit team focuses on decisioning; we handle the upstream logistics.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Banks Choose GetKredit -->
+    <section class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-deep-900 via-[#0d1f35] to-deep-900"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Why Banks Work <span class="gradient-text">With GetKredit</span></h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass rounded-2xl p-6 reveal card-hover">
+                    <div class="w-10 h-10 rounded-lg bg-success/20 flex items-center justify-center mb-4"><i data-lucide="target" class="w-5 h-5 text-success"></i></div>
+                    <h4 class="font-bold mb-2">Pre-Qualified Applications</h4>
+                    <p class="text-sm text-gray-400">No cold leads. Every application matches your published eligibility criteria before it reaches your desk.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 100ms;">
+                    <div class="w-10 h-10 rounded-lg bg-bright/20 flex items-center justify-center mb-4"><i data-lucide="folder" class="w-5 h-5 text-bright"></i></div>
+                    <h4 class="font-bold mb-2">Complete Files</h4>
+                    <p class="text-sm text-gray-400">CIBIL, income proof, employment verification, identity docs, property details — all collected upfront.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 200ms;">
+                    <div class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center mb-4"><i data-lucide="building" class="w-5 h-5 text-accent"></i></div>
+                    <h4 class="font-bold mb-2">Verified Projects</h4>
+                    <p class="text-sm text-gray-400">Legal, technical, and RERA due diligence already coordinated. You review structured documentation.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 300ms;">
+                    <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4"><i data-lucide="message-circle" class="w-5 h-5 text-purple-400"></i></div>
+                    <h4 class="font-bold mb-2">Structured Queries</h4>
+                    <p class="text-sm text-gray-400">Raise and track queries on APF documents directly through the platform. Clear audit trail.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 400ms;">
+                    <div class="w-10 h-10 rounded-lg bg-success/20 flex items-center justify-center mb-4"><i data-lucide="repeat" class="w-5 h-5 text-success"></i></div>
+                    <h4 class="font-bold mb-2">Recurring Pipeline</h4>
+                    <p class="text-sm text-gray-400">Developer relationships across multiple projects mean sustained deal flow — not one-off transactions.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal card-hover" style="transition-delay: 500ms;">
+                    <div class="w-10 h-10 rounded-lg bg-bright/20 flex items-center justify-center mb-4"><i data-lucide="clock" class="w-5 h-5 text-bright"></i></div>
+                    <h4 class="font-bold mb-2">Faster Processing</h4>
+                    <p class="text-sm text-gray-400">Complete documentation and pre-verified projects mean your credit team can decision faster.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Query Management -->
+    <section class="relative py-24 bg-deep-900 border-y border-white/10">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8 text-center reveal">
+            <div class="w-16 h-16 rounded-2xl bg-bright/20 flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="messages-square" class="w-8 h-8 text-bright"></i>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Query Management, <span class="gradient-text">Structured</span></h2>
+            <p class="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed mb-8">
+                Banks raise queries on APF documents and insurance submissions directly through the GetKredit platform. Developer and GetKredit team receive, respond, and resolve — all tracked, all documented, no email chains.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+                <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-success"></i>Clear query categories</div>
+                <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-success"></i>Response timelines tracked</div>
+                <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-success"></i>Full audit trail for compliance</div>
+                <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-success"></i>No lost follow-ups</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bank Database Note -->
+    <section class="relative py-24 bg-deep-900">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="glass rounded-3xl p-8 md:p-12 reveal border-l-4 border-success">
+                <div class="flex items-start gap-6">
+                    <div class="w-14 h-14 rounded-2xl bg-success/20 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="database" class="w-7 h-7 text-success"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3">The GetKredit Bank Database</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">GetKredit maintains a structured, internal database of empanelled banks — interest rates, LTV ratios, product types, CIBIL ranges, and preferred asset classes. This database is used exclusively by GetKredit's Credit team to match the right bank to each customer and project.</p>
+                        <p class="text-gray-300 leading-relaxed">It is not publicly visible. It is not accessible to competitors. It is a matching tool — not a marketing platform.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-deep-900 via-[#0d1f35] to-deep-900"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center reveal">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Discuss <span class="gradient-text">Partnership?</span></h2>
+            <p class="text-xl text-gray-400 mb-10 leading-relaxed">
+                Our Credit team works with banks and HFCs across India. Whether you're exploring APF relationships or looking to improve your home loan conversion rates, we can show you exactly how GetKredit delivers qualified applications.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html#contact" class="btn-primary btn-glow px-8 py-4 rounded-full text-lg font-semibold text-white inline-flex items-center justify-center gap-2">
+                    Partner With Us
+                    <i data-lucide="handshake" class="w-5 h-5"></i>
+                </a>
+                <a href="index.html#contact" class="glass px-8 py-4 rounded-full text-lg font-semibold text-white hover:bg-white/10 transition-all inline-flex items-center justify-center gap-2">
+                    Talk to Our Credit Team
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative border-t border-white/10 pt-20 pb-10 bg-deep-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="assets/getKredit.png" alt="Logo" class="w-50 h-10 rounded-xl object-cover">
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">Real Estate & Credit Management Platform. Manage every project, lead, customer, and home loan from one place.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-bright/20 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-bright/20 transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-bright/20 transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="features.html" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="builders.html" class="hover:text-white transition-colors">Builders</a></li>
+                        <li><a href="banks.html" class="hover:text-white transition-colors">Banks</a></li>
+                        <li><a href="home_buyer.html" class="hover:text-white transition-colors">Home Buyers</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Contact</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i>ankit.jain@klaxonadvisory.co.in</li>
+                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i>mayank.arora@klaxonadvisory.co.in</li>
+                        <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4"></i>New Rajender Nagar, Delhi</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">For Banks</h4>
+                    <p class="text-sm text-gray-400 mb-4">Interested in partnering with GetKredit for APF and home loan applications?</p>
+                    <a href="index.html#contact" class="text-bright hover:text-white transition-colors text-sm font-semibold">Contact Our Credit Team →</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-sm">© 2025 GetKredit Services Private Limited. All rights reserved.</p>
+                <div class="flex gap-6 text-sm text-gray-400">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        // Custom cursor
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+        });
+
+        // GSAP animations
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('.reveal').forEach(element => {
+            gsap.fromTo(element, 
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse'
+                    }
+                }
+            );
+        });
+    </script>
+</body>
+</html>

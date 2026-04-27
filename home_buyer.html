@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetKredit — Home Loan Assistance</title>
+    <link rel="icon" href="assets\logo.png" />
+    <meta name="description" content="Get the right home loan for your property purchase. GetKredit matches your profile to the best bank, negotiates your terms, and manages the entire application process.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Frameworks & Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        deep: { 900: '#0a1628', 800: '#104960', 700: '#155e7a' },
+                        bright: '#0066FF',
+                        accent: '#FF8C42',
+                        success: '#00A86B',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
+    <!-- Custom Assets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .custom-cursor {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #0066FF;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.15s ease-out;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
+        .custom-cursor.hovering {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 102, 255, 0.2);
+            border-color: #00A86B;
+        }
+        @media (max-width: 768px) {
+            .custom-cursor { display: none; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-bright selection:text-white">
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="noise"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="glass-strong border-b border-white/10">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <a href="index.html" class="flex items-center gap-3 cursor-pointer">
+                        <img src="assets/getKredit.png" alt="Logo" class="w-50 h-10 rounded-xl object-cover">
+                    </a>
+                    <div class="hidden md:flex items-center gap-8">
+                        <a href="index.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Home</a>
+                        <a href="features.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Features</a>
+                        <a href="builders.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Builders</a>
+                        <a href="banks.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Banks</a>
+                        <a href="home_buyer.html" class="nav-link active text-sm font-medium text-white transition-colors">Home Buyers</a>
+                        <a href="how-it-works.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">How It Works</a>
+                        <a href="about.html" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">About Us</a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="http://3.6.109.118" class="hidden md:block text-sm font-medium text-gray-300 hover:text-white transition-colors">Log In</a>
+                        <a href="index.html#contact" class="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold text-white flex items-center gap-2">Check Your Loan Eligibility<i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-20 mesh-gradient">
+        <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 py-20 text-center">
+            <span class="text-accent font-semibold tracking-wider uppercase text-sm reveal">Home Loan Assistance</span>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mt-6 mb-6 reveal">
+                The Home Loan Process is <span class="gradient-text italic font-serif">Broken.</span> We Fixed It.
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed reveal">
+                The Indian home loan system is confusing, opaque, and inefficient. Most buyers apply to the wrong banks, waste time, and damage their CIBIL score. GetKredit matches your profile to the right lender, negotiates your terms, and manages the entire process.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center reveal">
+                <a href="index.html#contact" class="btn-primary btn-glow px-8 py-4 rounded-full text-lg font-semibold text-white inline-flex items-center gap-2">
+                    Check Your Loan Eligibility
+                    <i data-lucide="calculator" class="w-5 h-5"></i>
+                </a>
+                <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="glass px-8 py-4 rounded-full text-lg font-semibold text-white hover:bg-white/10 transition-all inline-flex items-center gap-2">
+                    Talk to Us on WhatsApp
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="relative py-32 bg-deep-900">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">What Home Buyers <span class="gradient-text">Actually Face</span></h2>
+            </div>
+            <div class="space-y-6 reveal">
+                <div class="glass rounded-2xl p-8 border-l-4 border-red-500/50">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-1"><i data-lucide="help-circle" class="w-5 h-5 text-red-400"></i></div>
+                        <div>
+                            <h4 class="font-bold mb-2">You Don't Know Which Bank is Right</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">Most buyers have no idea which bank fits their profile — their income type, CIBIL score, employment status, or the specific project they've booked. So they apply blindly. Wrong bank. Wrong eligibility. Wasted time.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl p-8 border-l-4 border-red-500/50">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-1"><i data-lucide="activity" class="w-5 h-5 text-red-400"></i></div>
+                        <div>
+                            <h4 class="font-bold mb-2">Multiple Applications Damage Your CIBIL</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">Every application triggers a hard inquiry on your CIBIL report. Apply to five banks that were never right for you, and you've just hurt your credit score — making it harder to get approved at the one bank that actually fits.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl p-8 border-l-4 border-red-500/50">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-1"><i data-lucide="user-x" class="w-5 h-5 text-red-400"></i></div>
+                        <div>
+                            <h4 class="font-bold mb-2">Non-Standard Profiles Get Rejected Outright</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">Self-employed? Irregular income? CIBIL score slightly below 750? Co-applicant needed? Most banks will decline you immediately — without understanding your actual financial situation or trying to structure the right solution.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl p-8 border-l-4 border-red-500/50">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-1"><i data-lucide="clock" class="w-5 h-5 text-red-400"></i></div>
+                        <div>
+                            <h4 class="font-bold mb-2">You're Chasing the Bank, Not the Other Way Around</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">Submit documents. Wait. Follow up. Submit more documents. Wait again. No visibility into where your application stands. No one to negotiate on your behalf. You're just another file in the queue.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What GetKredit Does -->
+    <section class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-deep-900 via-[#0d1f35] to-deep-900"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="text-success font-semibold tracking-wider uppercase text-sm">The GetKredit Difference</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-4">What We Do <span class="gradient-text">For You</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Four things. Done properly. Every single time.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass rounded-3xl p-8 card-hover reveal border-t-4 border-success">
+                    <div class="w-14 h-14 rounded-2xl bg-success/20 flex items-center justify-center mb-6">
+                        <i data-lucide="settings" class="w-7 h-7 text-success"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Simplification and Standardisation</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">GetKredit manages your entire home loan application process — from the first call to the final disbursement. We collect your documents using a structured checklist. We verify completeness before submission. We track every step.</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">Every stage is defined, automated where possible, and followed up on. You always know where your application stands and what comes next. No ambiguity. No lost paperwork. No wondering if someone is actually working on your file.</p>
+                </div>
+                <div class="glass rounded-3xl p-8 card-hover reveal border-t-4 border-bright" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-bright/20 flex items-center justify-center mb-6">
+                        <i data-lucide="target" class="w-7 h-7 text-bright"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Profile-Matched Bank Selection</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">We do not blast your profile to every bank. Your CIBIL score, income type, employment, assets, and the specific project you've booked are all assessed. Only banks whose eligibility criteria actually match your profile receive your application.</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">This means a higher likelihood of approval. Faster processing. And — critically — GetKredit's Credit team negotiates on your behalf: on interest rate, tenure, and EMI structure. You get the best available terms for your specific profile, not the bank's standard rate card.</p>
+                </div>
+                <div class="glass rounded-3xl p-8 card-hover reveal border-t-4 border-accent" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center mb-6">
+                        <i data-lucide="heart-handshake" class="w-7 h-7 text-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Support for Non-Standard Profiles</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">If your profile is not straightforward — if you're self-employed, have irregular income, or your CIBIL score is not where you'd like it to be — GetKredit does not turn you away. We work to understand your actual financial situation.</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">We structure the application appropriately. We identify the right lender for your circumstances. And we advocate on your behalf. The goal is a home loan sanction, not a standard-rate rejection. Even customers with slightly weaker profiles are facilitated — with honesty about what's possible and effort to make it happen.</p>
+                </div>
+                <div class="glass rounded-3xl p-8 card-hover reveal border-t-4 border-purple-500" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-500/20 flex items-center justify-center mb-6">
+                        <i data-lucide="clipboard-check" class="w-7 h-7 text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">End-to-End Structuring and Negotiation</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Getting a home loan is not just about filling a form. It is about presenting your profile in the most favourable, compliant way possible. GetKredit's Credit team structures your application to highlight your strengths.</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">We coordinate your documents. We negotiate with the bank's credit officer. We manage queries and follow-ups. We stay with you through sanction, documentation, and disbursement. Your job is to buy the property. GetKredit's job is to get you the loan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Home Buyer Journey -->
+    <section class="relative py-32 bg-deep-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Your Home Loan Journey <span class="gradient-text">With GetKredit</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Seven steps. From first call to disbursement. We manage every one.</p>
+            </div>
+            <div class="grid md:grid-cols-7 gap-4 reveal">
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-success/20 flex items-center justify-center mx-auto mb-4"><span class="text-success font-bold">1</span></div>
+                    <div class="text-sm font-bold mb-2">Initial Call</div>
+                    <div class="text-xs text-gray-400">Understand your requirement, property details, and financial profile</div>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-bright/20 flex items-center justify-center mx-auto mb-4"><span class="text-bright font-bold">2</span></div>
+                    <div class="text-sm font-bold mb-2">CIBIL & Profiling</div>
+                    <div class="text-xs text-gray-400">Assess credit score, income, employment, and assets</div>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-4"><span class="text-accent font-bold">3</span></div>
+                    <div class="text-sm font-bold mb-2">Bank Selection</div>
+                    <div class="text-xs text-gray-400">Identify right bank(s) for your profile and specific project</div>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto mb-4"><span class="text-purple-400 font-bold">4</span></div>
+                    <div class="text-sm font-bold mb-2">Documents</div>
+                    <div class="text-xs text-gray-400">Structured checklist — nothing asked twice</div>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-success/20 flex items-center justify-center mx-auto mb-4"><span class="text-success font-bold">5</span></div>
+                    <div class="text-sm font-bold mb-2">Submission</div>
+                    <div class="text-xs text-gray-400">Complete dossier submitted to selected bank(s)</div>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-bright/20 flex items-center justify-center mx-auto mb-4"><span class="text-bright font-bold">6</span></div>
+                    <div class="text-sm font-bold mb-2">Processing</div>
+                    <div class="text-xs text-gray-400">Follow-up, query management, and term negotiation</div>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-4"><span class="text-accent font-bold">7</span></div>
+                    <div class="text-sm font-bold mb-2">Disbursement</div>
+                    <div class="text-xs text-gray-400">Sanction letter received; disbursement coordinated</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Help -->
+    <section class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-deep-900 via-[#0d1f35] to-deep-900"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Who GetKredit <span class="gradient-text">Helps</span></h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass rounded-3xl p-8 card-hover reveal border-t-4 border-success">
+                    <div class="w-14 h-14 rounded-2xl bg-success/20 flex items-center justify-center mb-6">
+                        <i data-lucide="briefcase" class="w-7 h-7 text-success"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Salaried Buyer</h3>
+                    <p class="text-sm text-gray-400 mb-4">Steady income, first home loan, wants the best rate</p>
+                    <p class="text-gray-300 text-sm leading-relaxed">You have regular salary credits, a consistent employment history, and a decent CIBIL score. You want the lowest interest rate and the smoothest process. GetKredit matches you to the right bank, negotiates your terms, and ensures your application is processed without delays.</p>
+                </div>
+                <div class="glass rounded-3xl p-8 card-hover reveal border-t-4 border-bright" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-bright/20 flex items-center justify-center mb-6">
+                        <i data-lucide="trending-up" class="w-7 h-7 text-bright"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Self-Employed / Business Owner</h3>
+                    <p class="text-sm text-gray-400 mb-4">Irregular income, needs the right structuring</p>
+                    <p class="text-gray-300 text-sm leading-relaxed">Your income fluctuates month to month. Your ITRs tell a different story than your bank statements. Most banks will decline you or offer terrible terms. GetKredit understands business income. We structure your application to show your actual repayment capacity and find lenders who value your profile.</p>
+                </div>
+                <div class="glass rounded-3xl p-8 card-hover reveal border-t-4 border-accent" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center mb-6">
+                        <i data-lucide="users" class="w-7 h-7 text-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Complex Profile Buyer</h3>
+                    <p class="text-sm text-gray-400 mb-4">CIBIL not ideal, co-applicant involved, or non-standard situation</p>
+                    <p class="text-gray-300 text-sm leading-relaxed">Your CIBIL is slightly below 750. You need a co-applicant to strengthen the application. You're an NRI with Indian property aspirations. Whatever the complexity, GetKredit works with you — identifying the right lender, structuring appropriately, and advocating for your sanction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GetKredit vs Direct Comparison -->
+    <section class="relative py-32 bg-deep-900">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">GetKredit vs. Going <span class="gradient-text">Direct to Bank</span></h2>
+            </div>
+            <div class="glass rounded-3xl overflow-hidden reveal">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b border-white/10 bg-white/5">
+                            <th class="text-left p-6 font-bold text-white">What You Get</th>
+                            <th class="text-center p-6 font-bold text-success">With GetKredit</th>
+                            <th class="text-center p-6 font-bold text-gray-400">Going Direct</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr class="border-b border-white/10">
+                            <td class="p-6 text-gray-300">Bank Selection</td>
+                            <td class="p-6 text-center text-success">Profile-matched to the right bank(s)</td>
+                            <td class="p-6 text-center text-gray-400">You guess; often wrong</td>
+                        </tr>
+                        <tr class="border-b border-white/10">
+                            <td class="p-6 text-gray-300">Interest Rate</td>
+                            <td class="p-6 text-center text-success">Negotiated for your profile</td>
+                            <td class="p-6 text-center text-gray-400">Standard rate card</td>
+                        </tr>
+                        <tr class="border-b border-white/10">
+                            <td class="p-6 text-gray-300">Documentation</td>
+                            <td class="p-6 text-center text-success">Structured checklist, collected once</td>
+                            <td class="p-6 text-center text-gray-400">Multiple trips, repeated requests</td>
+                        </tr>
+                        <tr class="border-b border-white/10">
+                            <td class="p-6 text-gray-300">Non-Standard Profiles</td>
+                            <td class="p-6 text-center text-success">Facilitated with right structuring</td>
+                            <td class="p-6 text-center text-gray-400">Often rejected outright</td>
+                        </tr>
+                        <tr class="border-b border-white/10">
+                            <td class="p-6 text-gray-300">Follow-Up</td>
+                            <td class="p-6 text-center text-success">GetKredit chases the bank for you</td>
+                            <td class="p-6 text-center text-gray-400">You're the one chasing</td>
+                        </tr>
+                        <tr>
+                            <td class="p-6 text-gray-300">Visibility</td>
+                            <td class="p-6 text-center text-success">Always know your application status</td>
+                            <td class="p-6 text-center text-gray-400">Radio silence until decision</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-deep-900 via-[#0d1f35] to-deep-900"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Frequently Asked <span class="gradient-text">Questions</span></h2>
+            </div>
+            <div class="space-y-4 reveal">
+                <div class="glass rounded-2xl p-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-lg bg-success/20 flex items-center justify-center flex-shrink-0 mt-1"><i data-lucide="help-circle" class="w-4 h-4 text-success"></i></div>
+                        <div>
+                            <h4 class="font-bold mb-2">Does applying through GetKredit cost me anything?</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">No. GetKredit's home loan assistance service is free for home buyers. We earn from the banks we partner with — not from you. You pay nothing upfront, nothing during the process, and nothing at disbursement.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl p-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-lg bg-bright/20 flex items-center justify-center flex-shrink-0 mt-1"><i data-lucide="help-circle" class="w-4 h-4 text-bright"></i></div>
+                        <div>
+                            <h4 class="font-bold mb-2">How long does the process take?</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">From initial call to sanction letter, typically 7–14 working days for straightforward profiles. Complex profiles or additional document requirements may take longer. GetKredit's job is to keep things moving — we follow up daily so you don't have to.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl p-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0 mt-1"><i data-lucide="help-circle" class="w-4 h-4 text-accent"></i></div>
+                        <div>
+                            <h4 class="font-bold mb-2">What if my CIBIL score is low?</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">A low CIBIL score doesn't automatically disqualify you. GetKredit assesses your overall profile — income stability, existing relationships, co-applicant strength, and the specific lender's criteria. We work to find solutions even for imperfect credit histories. Sometimes a co-applicant or additional collateral can help. We'll be honest about what's possible.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl p-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center flex-shrink-0 mt-1"><i data-lucide="help-circle" class="w-4 h-4 text-purple-400"></i></div>
+                        <div>
+                            <h4 class="font-bold mb-2">Which banks does GetKredit work with?</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">GetKredit is empaneled with leading public sector banks, private banks, and housing finance companies across India. The specific banks available to you depend on your profile and the project you've booked. We maintain relationships with multiple lenders so we can match you to the right one — not just the nearest branch.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl p-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-lg bg-success/20 flex items-center justify-center flex-shrink-0 mt-1"><i data-lucide="help-circle" class="w-4 h-4 text-success"></i></div>
+                        <div>
+                            <h4 class="font-bold mb-2">What documents will I need?</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">Standard requirements include: identity proof (Aadhaar/PAN), address proof, income proof (salary slips or ITRs), bank statements, employment/business proof, and property documents. GetKredit provides a structured checklist upfront — you'll know exactly what's needed before you start. Nothing is asked twice.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl p-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-lg bg-bright/20 flex items-center justify-center flex-shrink-0 mt-1"><i data-lucide="help-circle" class="w-4 h-4 text-bright"></i></div>
+                        <div>
+                            <h4 class="font-bold mb-2">Can NRI buyers use GetKredit?</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">Yes. GetKredit works with NRI buyers purchasing property in India. The process involves additional documentation (passport, visa, overseas employment proof, NRE/NRO statements), and we coordinate with banks that have specific NRI home loan products. Distance is not a barrier — we manage everything remotely until disbursement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-deep-900 via-[#0d1f35] to-deep-900"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center reveal">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Your <span class="gradient-text">Home Loan?</span></h2>
+            <p class="text-xl text-gray-400 mb-10 leading-relaxed">
+                Stop guessing which bank is right for you. Stop chasing applications. Let GetKredit match your profile, negotiate your terms, and manage the process from start to finish.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html#contact" class="btn-primary btn-glow px-8 py-4 rounded-full text-lg font-semibold text-white inline-flex items-center justify-center gap-2">
+                    Check Your Loan Eligibility
+                    <i data-lucide="calculator" class="w-5 h-5"></i>
+                </a>
+                <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="glass px-8 py-4 rounded-full text-lg font-semibold text-white hover:bg-white/10 transition-all inline-flex items-center justify-center gap-2">
+                    Talk to Us on WhatsApp
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                </a>
+                <a href="tel:+91XXXXXXXXXX" class="glass px-8 py-4 rounded-full text-lg font-semibold text-white hover:bg-white/10 transition-all inline-flex items-center justify-center gap-2">
+                    Call Us
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative border-t border-white/10 pt-20 pb-10 bg-deep-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="assets/getKredit.png" alt="Logo" class="w-50 h-10 rounded-xl object-cover">
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">Real Estate & Credit Management Platform. Manage every project, lead, customer, and home loan from one place.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-bright/20 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-bright/20 transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-bright/20 transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="features.html" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="builders.html" class="hover:text-white transition-colors">Builders</a></li>
+                        <li><a href="banks.html" class="hover:text-white transition-colors">Banks</a></li>
+                        <li><a href="home_buyer.html" class="hover:text-white transition-colors">Home Buyers</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Contact</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i>ankit.jain@klaxonadvisory.co.in</li>
+                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i>mayank.arora@klaxonadvisory.co.in</li>
+                        <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4"></i>New Rajender Nagar, Delhi</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">For Home Buyers</h4>
+                    <p class="text-sm text-gray-400 mb-4">Buying a property and need home loan assistance?</p>
+                    <a href="index.html#contact" class="text-bright hover:text-white transition-colors text-sm font-semibold">Check Your Eligibility →</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-sm">© 2025 GetKredit Services Private Limited. All rights reserved.</p>
+                <div class="flex gap-6 text-sm text-gray-400">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        // Custom cursor
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+        });
+
+        // GSAP animations
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('.reveal').forEach(element => {
+            gsap.fromTo(element, 
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse'
+                    }
+                }
+            );
+        });
+    </script>
+</body>
+</html>
