@@ -93,7 +93,21 @@
     </nav>
 
     <!-- Hero -->
-    <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-20 mesh-gradient">
+    <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-20 mesh-gradient">
+        <!-- Animated orbs for visual depth -->
+        <div class="animated-orb orb-blue top-0 -right-32"></div>
+        <div class="animated-orb orb-orange bottom-0 -left-32"></div>
+        <!-- Animated construction/building illustration -->
+        <div class="absolute right-0 top-1/4 w-80 h-80 md:w-96 md:h-96 opacity-60 pointer-events-none hidden lg:block" style="z-index: 1;">
+            <lottie-player 
+                src="https://lottie.host/5b8f4c90-1234-5678-9abc-def012345678/construction-animation.json" 
+                background="transparent" 
+                speed="1" 
+                style="width: 100%; height: 100%;" 
+                loop 
+                autoplay>
+            </lottie-player>
+        </div>
         <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 py-20 text-center">
             <span class="text-accent font-semibold tracking-wider uppercase text-sm reveal">Built for Builders First</span>
             <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mt-6 mb-6 reveal">
