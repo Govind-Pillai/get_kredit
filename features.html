@@ -41,21 +41,21 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         .custom-cursor {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             border: 2px solid #0066FF;
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
             z-index: 9999;
-            transition: all 0.15s ease-out;
             transform: translate(-50%, -50%);
-            mix-blend-mode: difference;
+            will-change: transform;
+            background: rgba(0, 102, 255, 0.1);
         }
         .custom-cursor.hovering {
-            width: 48px;
-            height: 48px;
-            background: rgba(0, 102, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 168, 107, 0.2);
             border-color: #00A86B;
         }
         @media (max-width: 768px) {
@@ -63,7 +63,7 @@
         }
     </style>
 </head>
-<body class="antialiased selection:bg-bright selection:text-white">
+<body class="antialiased selection:bg-bright selection:text-white" style="cursor: none;">
     <div class="custom-cursor" id="cursor"></div>
     <div class="noise"></div>
 
@@ -644,13 +644,34 @@
     <script src="assets/js/main.js"></script>
     <script>
         const cursor = document.getElementById('cursor');
+        let cursorX = 0, cursorY = 0;
+        let posX = 0, posY = 0;
+
         document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
+            cursorX = e.clientX;
+            cursorY = e.clientY;
         });
+
+        function animateCursor() {
+            posX += (cursorX - posX) * 0.15;
+            posY += (cursorY - posY) * 0.15;
+            cursor.style.transform = `translate(-50%, -50%) translate(${posX}px, ${posY}px)`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
         document.querySelectorAll('a, button, input, textarea, select').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+            el.classList.add('cursor-pointer');
+        });
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest('a, button, input, textarea, select, .cursor-pointer')) {
+                cursor.classList.add('hovering');
+            }
+        });
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.closest('a, button, input, textarea, select, .cursor-pointer')) {
+                cursor.classList.remove('hovering');
+            }
         });
     </script>
 </body>
