@@ -25,36 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Custom Cursor Movement
-    const cursor = document.getElementById('cursor');
-    console.log('Cursor element:', cursor); // Debug log
-    
-    if (cursor) {
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        document.addEventListener('mousedown', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
-        });
-
-        document.addEventListener('mouseup', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-        });
-
-        // Add hover effect for interactive elements
-        const interactiveElements = document.querySelectorAll('a, button, input, textarea, [role="button"]');
-        interactiveElements.forEach(elem => {
-            elem.addEventListener('mouseenter', () => {
-                cursor.classList.add('hovering');
-            });
-            elem.addEventListener('mouseleave', () => {
-                cursor.classList.remove('hovering');
-            });
-        });
-    }
-
     // Smooth Scroll for internal anchors
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
